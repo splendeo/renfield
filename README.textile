@@ -1,0 +1,52 @@
+h1. Renfield
+
+h2. Installation
+
+On your @environment.rb@ :
+
+<pre>
+  config.gem :renfield
+</pre>
+
+Then execute @rake gems:install@ if needed.
+
+The Renfield requires vlad - gems:install should install that one too.
+
+Your @lib/tasks/vlad.rake@ must also include vlad. Like so:
+
+<pre>
+begin
+  require 'vlad'
+  Vlad.load :app => :passenger
+rescue LoadError
+  # do nothing
+  raise "vlad didn't load!"
+end
+
+require 'renfield'
+</pre>
+
+
+h2. Additions:
+
+Renfield includes:
+
+h3. Methods
+
+* color generation for console messages: @red@, @green@, @yellow@, @blue@, @magenta@, @cyan@. Example: @puts red('hello')@ will print a red "hello" message on the console. 
+* @info@, @warning@, @error@. They are a fancy way of printing information messages, warnings and errors. Example: @info 'dump done'@
+* @remote_rake@ for executing a rake on the target server. Example: @remote_rake 'db:drop'@ will do @run "cd #{current_path}; rake RAILS_ENV='production' db:drop"@
+
+h3. Remote tasks
+
+* @vlad:chown@ does nothing yet.
+* @vlad:restart@ does @run "cd #{current_path}; touch tmp/restart.txt"@
+* @vlad:confirm@ asks for a confirmation before continuing. Otherwise the rake is aborted.
+* @vlad:clean_migrate@ executes @rake db:reset db:migrate@ on the target server
+* @vlad:maintenance:set@ puts a "this site is undergoing maintenance" page on the site
+* @vlad:maintenance:remove@ removes the maintenance page
+
+
+
+
+

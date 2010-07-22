@@ -1,16 +1,24 @@
 h1. Renfield
 
+This gem adds several interesting features to "vlad the deployer":http://rubyhitsquad.com/Vlad_the_Deployer.html
+
+The name comes from Dracula's servant, "R. M. Renfield":http://en.wikipedia.org/wiki/Renfield .
+
 h2. Installation
 
 On your @environment.rb@ :
 
-<pre>
-  config.gem :renfield
-</pre>
+<pre>config.gem :renfield</pre>
 
 Then execute @rake gems:install@ if needed.
 
 The Renfield requires vlad - gems:install should install that one too.
+
+You can also install renfield + dependencies manually by doing:
+
+<pre>gem install renfield</pre>
+
+
 
 Your @lib/tasks/vlad.rake@ must also include vlad. Like so:
 
@@ -46,7 +54,7 @@ h3. Remote tasks
 * @vlad:maintenance:set@ puts a "this site is undergoing maintenance" page on the site
 * @vlad:maintenance:remove@ removes the maintenance page
 
-
+That's all for now.
 
 
 

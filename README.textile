@@ -44,6 +44,7 @@ h3. Methods
 * color generation for console messages: @red@, @green@, @yellow@, @blue@, @magenta@, @cyan@. Example: @puts red('hello')@ will print a red "hello" message on the console. 
 * @info@, @warning@, @error@. They are a fancy way of printing information messages, warnings and errors. Example: @info 'dump done'@
 * @remote_rake@ for executing a rake on the target server. Example: @remote_rake 'db:drop'@ will do @run "cd #{current_path}; rake RAILS_ENV='production' db:drop"@
+* rsync can be used to move folders/files across servers
 
 h3. Remote tasks
 

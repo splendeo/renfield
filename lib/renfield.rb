@@ -36,7 +36,11 @@ namespace :vlad do
   end
 
   def remote_rake(command)
-    run "cd #{current_path}; rake RAILS_ENV='production' #{command}"
+    run "cd #{current_path}; rake RAILS_ENV='#{rails_env}' #{command}"
+  end
+  
+  def rsync(server, port, server_path, local_path)
+    run "rsync --rsh='ssh -p#{port}' -r -z #{server}:#{server_path} #{local_path} --progress --stats"
   end
 
   desc "changes the owner of the complete directory to the group 'rails'"

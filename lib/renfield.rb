@@ -71,7 +71,7 @@ namespace :vlad do
   namespace :maintenance do
     desc 'Set maintenance mode'
     remote_task :set do
-      info "Seting maintenance mode"
+      info "Setting maintenance mode"
       begin
         run "cp #{current_path}/public/maintenance.html #{current_path}/public/system/maintenance.html"
       rescue Exception => ex
